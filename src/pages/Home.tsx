@@ -104,6 +104,33 @@ function SplitText({ text, className = '' }: { text: string; className?: string 
   )
 }
 
+/* ─── Demo Video Section ─── */
+
+function DemoVideoSection() {
+  return (
+    <section className="relative z-20 pt-28 sm:pt-36 pb-8 px-5 sm:px-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="text-label text-accent-blue mb-3">Watch the Demo</div>
+          <h2 className="text-h2 text-text-primary">
+            See Convoy in action
+          </h2>
+        </div>
+        <div className="relative rounded-xl overflow-hidden border border-border-custom bg-surface aspect-video">
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src="https://www.youtube.com/embed/5btzce8adeE"
+            title="Convoy Demo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─── Sections ─── */
 
 function HeroSection() {
@@ -175,7 +202,7 @@ function HeroSection() {
 /* ─── Problem Section ─── */
 
 const PROBLEM_LINES = [
-  { text: '$ npm install -g convoy', color: 'text-accent-blue' },
+  { text: '$ git clone .../convoy && ./scripts/install.sh', color: 'text-accent-blue' },
   { text: '$ convoy init', color: 'text-text-secondary' },
   { text: '  Creating .convoy/state.db...', color: 'text-text-tertiary' },
   { text: '  State engine: SQLite + JSON diff', color: 'text-text-tertiary' },
@@ -782,10 +809,10 @@ const PLUGIN_STEPS = [
 ]
 
 const CLI_STEPS = [
-  { cmd: 'npm install -g convoy', desc: 'Install globally' },
+  { cmd: 'git clone https://github.com/teckedd-code2save/convoy.git', desc: 'Clone the repo' },
+  { cmd: 'cd convoy && ./scripts/install.sh', desc: 'Run the install script' },
   { cmd: 'convoy init', desc: 'Initialize state database' },
-  { cmd: 'convoy plan ./my-app', desc: 'Preview deployment plan' },
-  { cmd: 'npm run convoy -- ship ./my-app --open', desc: 'Ship to production' },
+  { cmd: 'convoy ship ./my-app --open', desc: 'Ship to production' },
 ]
 
 function InstallSection() {
@@ -855,7 +882,7 @@ function InstallSection() {
               <div className="terminal-dot terminal-dot-blue" />
               <div className="terminal-dot terminal-dot-green" />
               <span className="ml-2 text-xs text-text-tertiary">
-                {mode === 'claude' ? '.claude-plugin/install' : 'npm install -g convoy'}
+                {mode === 'claude' ? '.claude-plugin/install' : 'git clone + ./scripts/install.sh'}
               </span>
               <button
                 onClick={copyAll}
@@ -1005,6 +1032,7 @@ export default function Home() {
 
   return (
     <main>
+      <DemoVideoSection />
       <HeroSection />
       <ProblemSection />
       <PipelineDeepDive />

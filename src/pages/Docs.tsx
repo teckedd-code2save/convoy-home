@@ -83,7 +83,7 @@ const COMMANDS = [
     example: '$ convoy ship ./my-app --prod --open\n  Executing plan plan_abc123...\n  [ship] Rolling update: 3/3 healthy\n  [observe] 5min stability window: OK\n  Deployed: https://my-app.vercel.app',
     tags: ['core'],
     claude: '/convoy ship ./my-app --open',
-    cli: 'npm run convoy -- ship ./my-app --open',
+    cli: 'convoy ship ./my-app --open',
     env: ['CONVOY_TARGET', 'VERCEL_TOKEN', 'DOCKER_REGISTRY'],
     flags: [
       { flag: '--prod', desc: 'Target production environment' },
