@@ -1032,8 +1032,8 @@ export default function Home() {
 
   return (
     <main>
-      <DemoVideoSection />
       <HeroSection />
+      <DemoVideoSection />
       <ProblemSection />
       <PipelineDeepDive />
       <FeaturesSection />
