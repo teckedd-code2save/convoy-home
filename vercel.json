@@ -1,4 +1,4 @@
 {
-  "framework": "auto",
+  "framework": "vite",
   "regions": ["iad1"]
 }
